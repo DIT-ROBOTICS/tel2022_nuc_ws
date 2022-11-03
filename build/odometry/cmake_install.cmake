@@ -1,8 +1,8 @@
-# Install script for directory: /home/ditrobotics/tokyo2022_nuc_ws/src/odometry
+# Install script for directory: /home/ditrobotics/tel2022_nuc_ws/src/odometry
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ditrobotics/tokyo2022_nuc_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/ditrobotics/tel2022_nuc_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ditrobotics/tokyo2022_nuc_ws/build/odometry/catkin_generated/installspace/odometry.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/ditrobotics/tel2022_nuc_ws/build/odometry/catkin_generated/installspace/odometry.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry/cmake" TYPE FILE FILES
-    "/home/ditrobotics/tokyo2022_nuc_ws/build/odometry/catkin_generated/installspace/odometryConfig.cmake"
-    "/home/ditrobotics/tokyo2022_nuc_ws/build/odometry/catkin_generated/installspace/odometryConfig-version.cmake"
+    "/home/ditrobotics/tel2022_nuc_ws/build/odometry/catkin_generated/installspace/odometryConfig.cmake"
+    "/home/ditrobotics/tel2022_nuc_ws/build/odometry/catkin_generated/installspace/odometryConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry" TYPE FILE FILES "/home/ditrobotics/tokyo2022_nuc_ws/src/odometry/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/odometry" TYPE FILE FILES "/home/ditrobotics/tel2022_nuc_ws/src/odometry/package.xml")
 endif()
 

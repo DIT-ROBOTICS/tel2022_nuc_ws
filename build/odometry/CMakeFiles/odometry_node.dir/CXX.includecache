@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ditrobotics/tokyo2022_nuc_ws/src/odometry/include/odometry/odometry.h
+/home/ditrobotics/tel2022_nuc_ws/src/odometry/include/odometry/odometry.h
 cmath
 -
 random
@@ -28,9 +28,9 @@ tf2/utils.h
 tf2_ros/transform_broadcaster.h
 -
 
-/home/ditrobotics/tokyo2022_nuc_ws/src/odometry/src/nodes/odometry_node.cpp
+/home/ditrobotics/tel2022_nuc_ws/src/odometry/src/nodes/odometry_node.cpp
 odometry/odometry.h
-/home/ditrobotics/tokyo2022_nuc_ws/src/odometry/src/nodes/odometry/odometry.h
+/home/ditrobotics/tel2022_nuc_ws/src/odometry/src/nodes/odometry/odometry.h
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

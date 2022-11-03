@@ -1,2 +1,2 @@
 - setup-file:
-    local-name: /home/ditrobotics/tokyo2022_nuc_ws/devel/setup.sh
+    local-name: /home/ditrobotics/tel2022_nuc_ws/devel/setup.sh

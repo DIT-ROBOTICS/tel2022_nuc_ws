@@ -1,4 +1,4 @@
-prefix=/home/ditrobotics/tokyo2022_nuc_ws/install
+prefix=/home/ditrobotics/tel2022_nuc_ws/install
 
 Name: odometry
 Description: Description of odometry

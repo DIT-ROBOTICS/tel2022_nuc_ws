@@ -1,4 +1,4 @@
-prefix=/home/ditrobotics/tokyo2022_nuc_ws/install
+prefix=/home/ditrobotics/tel2022_nuc_ws/install
 
 Name: rosserial_python
 Description: Description of rosserial_python

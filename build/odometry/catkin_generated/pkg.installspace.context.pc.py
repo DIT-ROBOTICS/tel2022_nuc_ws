@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "${prefix}/include".split(';') if "${prefix}/i
 PROJECT_CATKIN_DEPENDS = "geometry_msgs;nav_msgs;roscpp;std_msgs;tf2;tf2_ros".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "-lodometry".split(';') if "-lodometry" != "" else []
 PROJECT_NAME = "odometry"
-PROJECT_SPACE_DIR = "/home/ditrobotics/tokyo2022_nuc_ws/install"
+PROJECT_SPACE_DIR = "/home/ditrobotics/tel2022_nuc_ws/install"
 PROJECT_VERSION = "0.0.0"
