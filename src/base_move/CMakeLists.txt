@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(odometry)
+project(base_move)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -11,6 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   nav_msgs
   roscpp
+  rospy
   std_msgs
   tf2
   tf2_ros
@@ -73,7 +74,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## Generate added messages and services with any dependencies listed here
 # generate_messages(
 #   DEPENDENCIES
-#   geometry_msgs#   nav_msgs#   std_msgs#   tf2_geometry_msgs
+#   geometry_msgs#   std_msgs
 # )
 
 ################################################
@@ -107,8 +108,8 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
  INCLUDE_DIRS include
- LIBRARIES odometry
- CATKIN_DEPENDS geometry_msgs nav_msgs roscpp std_msgs tf2 tf2_ros
+ LIBRARIES base_move
+ CATKIN_DEPENDS geometry_msgs nav_msgs roscpp rospy std_msgs tf2 tf2_ros
 #  DEPENDS system_lib
 )
 
@@ -127,7 +128,7 @@ include_directories(
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/odometry.cpp
 # )
-add_library(odometry src/odometry.cpp)
+add_library(my_navigation src/my_navigation.cpp)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -137,8 +138,11 @@ add_library(odometry src/odometry.cpp)
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/odometry_node.cpp)
-add_executable(odometry_node  src/nodes/odometry_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/base_move_node.cpp)
+add_executable(my_navigation_node     src/nodes/my_navigation_node.cpp)
+add_executable(my_odometry            src/my_odometry.cpp)
+add_executable(call_goal              src/call_goal.cpp)
+add_executable(tf2_transformListener  src/tf2_transformListener.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -154,8 +158,11 @@ add_executable(odometry_node  src/nodes/odometry_node.cpp)
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${catkin_LIBRARIES}
 # )
-target_link_libraries(odometry    ${catkin_LIBRARIES})
-target_link_libraries(odometry_node odometry)
+target_link_libraries(my_navigation         ${catkin_LIBRARIES})
+target_link_libraries(my_navigation_node    my_navigation)
+target_link_libraries(my_odometry           ${catkin_LIBRARIES})
+target_link_libraries(call_goal             ${catkin_LIBRARIES})
+target_link_libraries(tf2_transformListener ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -204,7 +211,7 @@ target_link_libraries(odometry_node odometry)
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_odometry.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_base_move.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()

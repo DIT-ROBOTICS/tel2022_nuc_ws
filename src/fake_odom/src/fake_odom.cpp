@@ -1,15 +1,39 @@
-#include "odometry/odometry.h"
+/**
+ *
+ * @file fake_odom.cpp
+ * @brief
+ *
+ * @code{.unparsed}
+ *      _____
+ *     /  /::\       ___           ___
+ *    /  /:/\:\     /  /\         /  /\
+ *   /  /:/  \:\   /  /:/        /  /:/
+ *  /__/:/ \__\:| /__/::\       /  /:/
+ *  \  \:\ /  /:/ \__\/\:\__   /  /::\
+ *   \  \:\  /:/     \  \:\/\ /__/:/\:\
+ *    \  \:\/:/       \__\::/ \__\/  \:\
+ *     \  \::/        /__/:/       \  \:\
+ *      \__\/         \__\/         \__\/
+ * @endcode
+ *
+ * @author sunfu.chou (sunfu.chou@gmail.com)
+ * @version 0.1
+ * @date 2021-05-02
+ *
+ */
+
+#include "fake_odom/fake_odom.h"
 
 using namespace std;
-using namespace odometry;
+using namespace fake_odom;
 
-Odometry::Odometry(ros::NodeHandle& nh, ros::NodeHandle& nh_local) : nh_(nh), nh_local_(nh_local)
+FakeOdom::FakeOdom(ros::NodeHandle& nh, ros::NodeHandle& nh_local) : nh_(nh), nh_local_(nh_local)
 {
-  timer_ = nh_.createTimer(ros::Duration(1.0), &Odometry::timerCallback, this, false, false);
+  timer_ = nh_.createTimer(ros::Duration(1.0), &FakeOdom::timerCallback, this, false, false);
   initialize();
 }
 
-bool Odometry::updateParams(std_srvs::Empty::Request& req, std_srvs::Empty::Response& res)
+bool FakeOdom::updateParams(std_srvs::Empty::Request& req, std_srvs::Empty::Response& res)
 {
   bool get_param_ok = true;
   bool prev_active = p_active_;
@@ -33,21 +57,20 @@ bool Odometry::updateParams(std_srvs::Empty::Request& req, std_srvs::Empty::Resp
   get_param_ok = nh_local_.param<double>("timeout", timeout, 0.2);
   timeout_.fromSec(timeout);
 
-  get_param_ok = nh_local_.param<string>("twist_topic", p_twist_topic_, "base_speed");
   get_param_ok = nh_local_.param<string>("odom_topic", p_odom_topic_, "odom");
   get_param_ok = nh_local_.param<string>("pose_topic", p_pose_topic_, "odom_pose");
   get_param_ok = nh_local_.param<string>("fixed_frame_id", p_fixed_frame_id_, "odom");
-  get_param_ok = nh_local_.param<string>("target_frame_id", p_target_frame_id_, "base_link");
+  get_param_ok = nh_local_.param<string>("target_frame_id", p_target_frame_id_, "base_footprint");
 
   /* check param */
   if (get_param_ok)
   {
-    ROS_INFO_STREAM("[Odometry]: "
+    ROS_INFO_STREAM("[Fake Odom]: "
                     << "param set ok");
   }
   else
   {
-    ROS_WARN_STREAM("[Odometry]: "
+    ROS_WARN_STREAM("[Fake Odom]: "
                     << "param set fail");
   }
 
@@ -58,7 +81,7 @@ bool Odometry::updateParams(std_srvs::Empty::Request& req, std_srvs::Empty::Resp
   {
     if (p_active_)
     {
-      twist_sub_ = nh_.subscribe(p_twist_topic_, 10, &Odometry::twistCallback, this);
+      twist_sub_ = nh_.subscribe("cmd_vel", 10, &FakeOdom::twistCallback, this);
       pose_pub_ = nh_.advertise<geometry_msgs::PoseWithCovarianceStamped>(p_pose_topic_, 10);
       odom_pub_ = nh_.advertise<nav_msgs::Odometry>(p_odom_topic_, 10);
       timer_.start();
@@ -102,13 +125,13 @@ bool Odometry::updateParams(std_srvs::Empty::Request& req, std_srvs::Empty::Resp
   return true;
 }
 
-void Odometry::twistCallback(const geometry_msgs::Twist::ConstPtr& ptr)
+void FakeOdom::twistCallback(const geometry_msgs::Twist::ConstPtr& ptr)
 {
   input_twist_ = *ptr;
   last_time_ = ros::Time::now();
 }
 
-void Odometry::timerCallback(const ros::TimerEvent& e)
+void FakeOdom::timerCallback(const ros::TimerEvent& e)
 {
   if(ros::Time::now().toSec() - last_time_.toSec() > timeout_.toSec()){
     return;
@@ -118,7 +141,7 @@ void Odometry::timerCallback(const ros::TimerEvent& e)
   publish();
 }
 
-void Odometry::updateTwist()
+void FakeOdom::updateTwist()
 {
   twist_.linear.x = input_twist_.linear.x;
   twist_.linear.y = input_twist_.linear.y;
@@ -127,7 +150,7 @@ void Odometry::updateTwist()
   output_odom_.twist.twist = twist_;
 }
 
-void Odometry::updatePose(const ros::TimerEvent& e)
+void FakeOdom::updatePose(const ros::TimerEvent& e)
 {
   double dt = (e.current_expected - e.last_expected).toSec();
 
@@ -145,7 +168,7 @@ void Odometry::updatePose(const ros::TimerEvent& e)
   output_odom_.pose.pose.orientation = tf2::toMsg(q);
 }
 
-void Odometry::publish()
+void FakeOdom::publish()
 {
   /* odom */
   ros::Time now = ros::Time::now();
@@ -166,8 +189,8 @@ void Odometry::publish()
 
   /* tf */
   static geometry_msgs::TransformStamped transform;
-  transform.header.stamp = now;
   transform.header.frame_id = p_fixed_frame_id_;
+  transform.header.stamp = now;
   transform.child_frame_id = p_target_frame_id_;
 
   transform.transform.translation.x = output_odom_.pose.pose.position.x;
