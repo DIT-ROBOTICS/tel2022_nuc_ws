@@ -135,10 +135,10 @@ void doMission(ros::Publisher pub1, ros::Publisher pub2, int index)
     if (missionType == 1)
     {
         // Publish target to base
-        output_target.header.frame_id = "map";  // **NEW**
-        output_target.header.stamp = ros::Time::now(); // **NEW**
+        output_target.header.frame_id = "map";              // **NEW**
+        output_target.header.stamp = ros::Time::now();      // **NEW**
         output_target.pose = state_list[index].getTarget(); // **NEW**
-        pub1.publish(output_target); // **NEW**
+        pub1.publish(output_target);                        // **NEW**
         moving = true;
     }
     else if (missionType == 2)
@@ -315,6 +315,11 @@ int main(int argc, char **argv)
         angle = atof(field.c_str());
         myQuaternion.setRPY(0, 0, angle * M_PI / 180.0);
         target_.orientation = tf2::toMsg(myQuaternion);
+
+        if (position_.first == 0 && position_.second == 0)
+        {
+            break;
+        }
 
         state nextState(position_, condition_, result_, target_);
         state_list.push_back(nextState);
