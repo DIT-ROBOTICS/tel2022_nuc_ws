@@ -1,0 +1,2 @@
+main_program
+-DCATKIN_DEVEL_PREFIX=/home/dit_nuc/tel2022_nuc_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dit_nuc/tel2022_nuc_ws/install -G Unix Makefiles
