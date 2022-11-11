@@ -1,0 +1,5 @@
+<launch>
+    <!-- main program -->
+    <node name="main_node" pkg="main_program" type="main_tel2022" output="screen"/>
+    
+</launch>
