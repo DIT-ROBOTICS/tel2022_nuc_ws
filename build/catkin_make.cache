@@ -1,2 +1,0 @@
-base_move:fake_odom:main_program:odometry:path_generation:rosserial_python
--DCATKIN_DEVEL_PREFIX=/home/ditrobotics/tel2022_nuc_ws/devel -DCMAKE_INSTALL_PREFIX=/home/ditrobotics/tel2022_nuc_ws/install -G Unix Makefiles

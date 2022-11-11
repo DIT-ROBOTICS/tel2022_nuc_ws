@@ -1,8 +1,0 @@
-prefix=/home/ditrobotics/tel2022_nuc_ws/install
-
-Name: main_program
-Description: Description of main_program
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
