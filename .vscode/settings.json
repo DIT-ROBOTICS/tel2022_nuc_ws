@@ -1,4 +1,7 @@
 {
     "C_Cpp.default.configurationProvider": "ms-vscode.makefile-tools",
-    "cmake.sourceDirectory": "${workspaceFolder}/src/main_program"
+    "cmake.sourceDirectory": "${workspaceFolder}/src/main_program",
+    "files.associations": {
+        "ostream": "cpp"
+    }
 }
