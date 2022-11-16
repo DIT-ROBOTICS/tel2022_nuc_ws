@@ -176,6 +176,11 @@ add_dependencies(main_tel2022 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPOR
 # scripts/my_python_script
 # DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 # )
+catkin_install_python(PROGRAMS
+    src/rgb_saver.py
+    src/block_detection.py
+    DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
 
 # # Mark executables for installation
 # # See http://docs.ros.org/melodic/api/catkin/html/howto/format1/building_executables.html

@@ -5,7 +5,7 @@ import time
 
 import rospy
 import rospkg
-from std_srvs.srv import *
+from std_srvs.srv import Trigger, TriggerResponse
 from geometry_msgs.msg import Point
 
 Conf_threshold = 0.8

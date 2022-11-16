@@ -6,7 +6,7 @@ import cv2
 import depthai as dai
 
 import rospy
-from std_srvs.srv import *
+from std_srvs.srv import Trigger, TriggerResponse
 
 # Create pipeline
 pipeline = dai.Pipeline()
@@ -41,8 +41,7 @@ frame = None
 def call_detection_service():
     rospy.wait_for_service('block_detection')
     try:
-        detection = rospy.ServiceProxy('block_detection', Trigger)
-        result = detection()
+        result = rospy.ServiceProxy('block_detection', Trigger)
         return result
     except rospy.ServiceException as e:
         print("Service call failed: %s" % e)
@@ -52,7 +51,7 @@ def get_photo_callback(req):
     cv2.imwrite(
         "/home/dit_nuc/tel2022_nuc_ws/src/main_program/include/detectPhoto.jpeg", frame)
     print(call_detection_service())
-    return TriggerResponse(True, "Successfully Get Detect Photo and Finish Calling Block Detection Service !")
+    return TriggerResponse(True, "Successfully Get Detect Photo and Finish Calling Block Deteection Service !")
 
 
 def take_photo_server():

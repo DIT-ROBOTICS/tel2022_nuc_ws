@@ -88,3 +88,11 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/main_program" TYPE FILE FILES "/home/dit_nuc/tel2022_nuc_ws/src/main_program/package.xml")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/main_program" TYPE PROGRAM FILES "/home/dit_nuc/tel2022_nuc_ws/build/main_program/catkin_generated/installspace/rgb_saver.py")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/main_program" TYPE PROGRAM FILES "/home/dit_nuc/tel2022_nuc_ws/build/main_program/catkin_generated/installspace/block_detection.py")
+endif()
+
