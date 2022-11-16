@@ -278,7 +278,7 @@ int main(int argc, char **argv)
     tf2::Quaternion myQuaternion;
 
     inFile.open(packagePath + "/include/" + filename_mission);
-    cout << "Mission Point CSV File << " << filename_mission << " >> ";
+    cout << "\nMission Point CSV File << " << filename_mission << " >> ";
     if (inFile.fail())
     {
         cout << "Could Not Open !" << endl;
