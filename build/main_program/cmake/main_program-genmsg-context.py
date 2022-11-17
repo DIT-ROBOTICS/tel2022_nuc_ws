@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg"
-services_str = ""
+services_str = "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
 pkg_name = "main_program"
 dependencies_str = "geometry_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

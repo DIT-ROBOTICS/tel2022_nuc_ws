@@ -18,6 +18,7 @@
 #include <std_srvs/Empty.h>
 #include <std_srvs/Trigger.h>
 #include <main_program/mission.h>
+#include <main_program/starting.h>
 
 #include <iostream>
 #include <stdlib.h>
@@ -104,14 +105,15 @@ public:
 
 int run_state = 0;
 int now_Status = SETUP;
+int whichScript = 0;
+bool readScript = false;
 
 bool moving = false;
 bool doing = false;
-bool finish_mission = false;
 bool mission_camera = false;
-bool mission_1 = false;
-bool mission_2 = false;
-bool mission_3 = false;
+bool arm_mission_1 = false;
+bool arm_mission_2 = false;
+bool arm_mission_3 = false;
 
 double position_x = 0.1;
 double position_y = 0.1;
@@ -169,7 +171,7 @@ void doMission(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceClient cli,
         }
         mission_camera = true;
     }
-    else if (missionType == 3 && !mission_1)
+    else if (missionType == 3 && !arm_mission_1)
     {
         // Publish target to arm
         get_block.T = t_block;
@@ -178,20 +180,23 @@ void doMission(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceClient cli,
         get_block.type = 1;
         pub2.publish(get_block);
         doing = true;
+        arm_mission_1 = true;
     }
-    else if (missionType == 4 && !mission_2)
+    else if (missionType == 4 && !arm_mission_2)
     {
         // Publish target to arm
         get_block.type = 2;
         pub2.publish(get_block);
         doing = true;
+        arm_mission_2 = true;
     }
-    else if (missionType == 5 && !mission_3)
+    else if (missionType == 5 && !arm_mission_3)
     {
         // Publish target to arm
         get_block.type = 3;
         pub2.publish(get_block);
         doing = true;
+        arm_mission_3 = true;
     }
 }
 
@@ -239,21 +244,21 @@ void checkStateMachine(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceCli
             }
             else if (state_list[i].getCondition() == 30)
             {
-                if (!moving && !doing && mission_1)
+                if (!moving && !doing && arm_mission_1)
                 {
                     doMission(pub1, pub2, cli, i);
                 }
             }
             else if (state_list[i].getCondition() == 40)
             {
-                if (!moving && !doing && mission_2)
+                if (!moving && !doing && arm_mission_2)
                 {
                     doMission(pub1, pub2, cli, i);
                 }
             }
             else if (state_list[i].getCondition() == 50)
             {
-                if (!moving && !doing && mission_3)
+                if (!moving && !doing && arm_mission_3)
                 {
                     doMission(pub1, pub2, cli, i);
                 }
@@ -297,15 +302,37 @@ public:
         }
     }
 
-    bool start_callback(std_srvs::Empty::Request &req, std_srvs::Empty::Response &res)
+    bool start_callback(main_program::starting::Request &req, main_program::starting::Response &res)
     {
-        if (now_Status > SETUP)
+        if (req.startTrigger == false)
         {
+            if (req.startStatus == 0)
+            {
+                whichScript = 0;
+            }
+            else if (req.startStatus == 1)
+            {
+                whichScript = 1;
+            }
+            else if (req.startStatus == 2)
+            {
+                whichScript = 2;
+            }
+            else if (req.startStatus == 3)
+            {
+                whichScript = 3;
+            }
+            else
+            {
+                cout << "No Relative Script Can Be Read !" << endl;
+            }
             now_Status = SETUP;
+            readScript = false;
         }
-        else
+        else if (req.startTrigger == true)
         {
-            run_state = 1;
+            now_Status = RUN;
+            cout << "Main Program Start !" << endl;
         }
         return true;
     }
@@ -378,7 +405,7 @@ int main(int argc, char **argv)
     string line;
     string field;
     string packagePath = ros::package::getPath("main_program");
-    string filename_mission = "tokyo2022_script.csv";
+    string filename_mission = "test_output.csv";
 
     pair<double, double> position_;
     int condition_;
@@ -387,65 +414,93 @@ int main(int argc, char **argv)
     double angle;
     tf2::Quaternion myQuaternion;
 
-    inFile.open(packagePath + "/include/" + filename_mission);
-    cout << "\nMission Point CSV File << " << filename_mission << " >> ";
-    if (inFile.fail())
-    {
-        cout << "Could Not Open !" << endl;
-    }
-    else
-    {
-        cout << "Open Successfully !" << endl;
-    }
-    cout << endl;
-    getline(inFile, line);
-    while (getline(inFile, line))
-    {
-        istringstream sin(line);
-
-        getline(sin, field, ',');
-        position_.first = atof(field.c_str());
-
-        getline(sin, field, ',');
-        position_.second = atof(field.c_str());
-
-        getline(sin, field, ',');
-        condition_ = atoi(field.c_str());
-
-        getline(sin, field, ',');
-        result_ = atoi(field.c_str());
-
-        getline(sin, field, ',');
-        target_.position.x = atof(field.c_str());
-
-        getline(sin, field, ',');
-        target_.position.y = atof(field.c_str());
-
-        getline(sin, field, ',');
-        angle = atof(field.c_str());
-        myQuaternion.setRPY(0, 0, angle * M_PI / 180.0);
-        target_.orientation = tf2::toMsg(myQuaternion);
-
-        if (position_.first == 0 && position_.second == 0)
-        {
-            break;
-        }
-
-        state nextState(position_, condition_, result_, target_);
-        state_list.push_back(nextState);
-    }
-    for (int i = 0; i < state_list.size(); i++)
-    {
-        state_list[i].printOut();
-    }
-    cout << endl;
-
     while (ros::ok())
     {
         switch (now_Status)
         {
         case SETUP:
-            now_Status = RUN;
+
+            if (!readScript)
+            {
+                moving = false;
+                doing = false;
+                mission_camera = false;
+                arm_mission_1 = false;
+                arm_mission_2 = false;
+                arm_mission_3 = false;
+                state_list.clear();
+
+                if (whichScript == 0)
+                {
+                    filename_mission = "test_output.csv";
+                }
+                else if (whichScript == 1)
+                {
+                    filename_mission = "tokyo2022_script1.csv";
+                }
+                else if (whichScript == 2)
+                {
+                    filename_mission = "tokyo2022_script2.csv";
+                }
+                else if (whichScript == 3)
+                {
+                    filename_mission = "tokyo2022_script3.csv";
+                }
+                inFile.open(packagePath + "/include/" + filename_mission);
+                cout << "\nMission Point CSV File << " << filename_mission << " >> ";
+                if (inFile.fail())
+                {
+                    cout << "Could Not Open !" << endl;
+                }
+                else
+                {
+                    cout << "Open Successfully !" << endl;
+                }
+                cout << endl;
+                getline(inFile, line);
+                while (getline(inFile, line))
+                {
+                    istringstream sin(line);
+
+                    getline(sin, field, ',');
+                    position_.first = atof(field.c_str());
+
+                    getline(sin, field, ',');
+                    position_.second = atof(field.c_str());
+
+                    getline(sin, field, ',');
+                    condition_ = atoi(field.c_str());
+
+                    getline(sin, field, ',');
+                    result_ = atoi(field.c_str());
+
+                    getline(sin, field, ',');
+                    target_.position.x = atof(field.c_str());
+
+                    getline(sin, field, ',');
+                    target_.position.y = atof(field.c_str());
+
+                    getline(sin, field, ',');
+                    angle = atof(field.c_str());
+                    myQuaternion.setRPY(0, 0, angle * M_PI / 180.0);
+                    target_.orientation = tf2::toMsg(myQuaternion);
+
+                    if (position_.first == 0 && position_.second == 0)
+                    {
+                        break;
+                    }
+
+                    state nextState(position_, condition_, result_, target_);
+                    state_list.push_back(nextState);
+                }
+                for (int i = 0; i < state_list.size(); i++)
+                {
+                    state_list[i].printOut();
+                }
+                cout << endl;
+                readScript = true;
+                inFile.close();
+            }
             break;
         case RUN:
             checkStateMachine(mainClass._baseTarget, mainClass._armTarget, mainClass._blockDetect);

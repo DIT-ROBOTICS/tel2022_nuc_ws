@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dit_nuc/tel2022_nuc_ws/build
 include main_program/CMakeFiles/main_program_generate_messages_lisp.dir/progress.make
 
 main_program/CMakeFiles/main_program_generate_messages_lisp: /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/msg/mission.lisp
+main_program/CMakeFiles/main_program_generate_messages_lisp: /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv/starting.lisp
 
 
 /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/msg/mission.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
@@ -62,8 +63,14 @@ main_program/CMakeFiles/main_program_generate_messages_lisp: /home/dit_nuc/tel20
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Lisp code from main_program/mission.msg"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/msg
 
+/home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv/starting.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
+/home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv/starting.lisp: /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Lisp code from main_program/starting.srv"
+	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv
+
 main_program_generate_messages_lisp: main_program/CMakeFiles/main_program_generate_messages_lisp
 main_program_generate_messages_lisp: /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/msg/mission.lisp
+main_program_generate_messages_lisp: /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv/starting.lisp
 main_program_generate_messages_lisp: main_program/CMakeFiles/main_program_generate_messages_lisp.dir/build.make
 
 .PHONY : main_program_generate_messages_lisp

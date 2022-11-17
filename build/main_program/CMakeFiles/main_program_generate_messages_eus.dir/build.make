@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dit_nuc/tel2022_nuc_ws/build
 include main_program/CMakeFiles/main_program_generate_messages_eus.dir/progress.make
 
 main_program/CMakeFiles/main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/msg/mission.l
+main_program/CMakeFiles/main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv/starting.l
 main_program/CMakeFiles/main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/manifest.l
 
 
@@ -63,12 +64,18 @@ main_program/CMakeFiles/main_program_generate_messages_eus: /home/dit_nuc/tel202
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from main_program/mission.msg"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/msg
 
+/home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv/starting.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv/starting.l: /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp code from main_program/starting.srv"
+	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv
+
 /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating EusLisp manifest code for main_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp manifest code for main_program"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program main_program geometry_msgs
 
 main_program_generate_messages_eus: main_program/CMakeFiles/main_program_generate_messages_eus
 main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/msg/mission.l
+main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv/starting.l
 main_program_generate_messages_eus: /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/manifest.l
 main_program_generate_messages_eus: main_program/CMakeFiles/main_program_generate_messages_eus.dir/build.make
 

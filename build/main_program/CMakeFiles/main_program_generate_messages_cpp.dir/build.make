@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dit_nuc/tel2022_nuc_ws/build
 include main_program/CMakeFiles/main_program_generate_messages_cpp.dir/progress.make
 
 main_program/CMakeFiles/main_program_generate_messages_cpp: /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/mission.h
+main_program/CMakeFiles/main_program_generate_messages_cpp: /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h
 
 
 /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/mission.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
@@ -63,8 +64,16 @@ main_program/CMakeFiles/main_program_generate_messages_cpp: /home/dit_nuc/tel202
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from main_program/mission.msg"
 	cd /home/dit_nuc/tel2022_nuc_ws/src/main_program && /home/dit_nuc/tel2022_nuc_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h: /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv
+/home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h: /opt/ros/noetic/share/gencpp/msg.h.template
+/home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h: /opt/ros/noetic/share/gencpp/srv.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating C++ code from main_program/starting.srv"
+	cd /home/dit_nuc/tel2022_nuc_ws/src/main_program && /home/dit_nuc/tel2022_nuc_ws/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program -e /opt/ros/noetic/share/gencpp/cmake/..
+
 main_program_generate_messages_cpp: main_program/CMakeFiles/main_program_generate_messages_cpp
 main_program_generate_messages_cpp: /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/mission.h
+main_program_generate_messages_cpp: /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h
 main_program_generate_messages_cpp: main_program/CMakeFiles/main_program_generate_messages_cpp.dir/build.make
 
 .PHONY : main_program_generate_messages_cpp

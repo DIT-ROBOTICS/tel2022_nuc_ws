@@ -54,6 +54,7 @@ CMAKE_BINARY_DIR = /home/dit_nuc/tel2022_nuc_ws/build
 include main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/progress.make
 
 main_program/CMakeFiles/main_program_generate_messages_nodejs: /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg/mission.js
+main_program/CMakeFiles/main_program_generate_messages_nodejs: /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js
 
 
 /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg/mission.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
@@ -62,8 +63,14 @@ main_program/CMakeFiles/main_program_generate_messages_nodejs: /home/dit_nuc/tel
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from main_program/mission.msg"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg
 
+/home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js: /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from main_program/starting.srv"
+	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv
+
 main_program_generate_messages_nodejs: main_program/CMakeFiles/main_program_generate_messages_nodejs
 main_program_generate_messages_nodejs: /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg/mission.js
+main_program_generate_messages_nodejs: /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js
 main_program_generate_messages_nodejs: main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/build.make
 
 .PHONY : main_program_generate_messages_nodejs

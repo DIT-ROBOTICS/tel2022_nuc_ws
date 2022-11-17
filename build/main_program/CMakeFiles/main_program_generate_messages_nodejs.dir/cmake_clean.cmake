@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg/mission.js"
+  "/home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js"
   "CMakeFiles/main_program_generate_messages_nodejs"
 )
 

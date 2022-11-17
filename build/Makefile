@@ -376,6 +376,19 @@ main_program_generate_messages_cpp/fast:
 .PHONY : main_program_generate_messages_cpp/fast
 
 #=============================================================================
+# Target rules for targets named _main_program_generate_messages_check_deps_starting
+
+# Build rule for target.
+_main_program_generate_messages_check_deps_starting: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _main_program_generate_messages_check_deps_starting
+.PHONY : _main_program_generate_messages_check_deps_starting
+
+# fast build rule for target.
+_main_program_generate_messages_check_deps_starting/fast:
+	$(MAKE) -f main_program/CMakeFiles/_main_program_generate_messages_check_deps_starting.dir/build.make main_program/CMakeFiles/_main_program_generate_messages_check_deps_starting.dir/build
+.PHONY : _main_program_generate_messages_check_deps_starting/fast
+
+#=============================================================================
 # Target rules for targets named _main_program_generate_messages_check_deps_mission
 
 # Build rule for target.
@@ -872,6 +885,7 @@ help:
 	@echo "... main_program_generate_messages_nodejs"
 	@echo "... main_program_gencpp"
 	@echo "... main_program_generate_messages_cpp"
+	@echo "... _main_program_generate_messages_check_deps_starting"
 	@echo "... _main_program_generate_messages_check_deps_mission"
 	@echo "... main_program_generate_messages"
 	@echo "... rosgraph_msgs_generate_messages_py"

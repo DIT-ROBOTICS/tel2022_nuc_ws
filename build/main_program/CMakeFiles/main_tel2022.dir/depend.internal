@@ -3,6 +3,9 @@
 
 main_program/CMakeFiles/main_tel2022.dir/src/main_tel2022.cpp.o
  /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/mission.h
+ /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h
+ /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/startingRequest.h
+ /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/startingResponse.h
  /home/dit_nuc/tel2022_nuc_ws/src/main_program/src/main_tel2022.cpp
  /opt/ros/noetic/include/geometry_msgs/Point.h
  /opt/ros/noetic/include/geometry_msgs/PointStamped.h

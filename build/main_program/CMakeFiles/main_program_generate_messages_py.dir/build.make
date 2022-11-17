@@ -54,7 +54,9 @@ CMAKE_BINARY_DIR = /home/dit_nuc/tel2022_nuc_ws/build
 include main_program/CMakeFiles/main_program_generate_messages_py.dir/progress.make
 
 main_program/CMakeFiles/main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py
+main_program/CMakeFiles/main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py
 main_program/CMakeFiles/main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py
+main_program/CMakeFiles/main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py
 
 
 /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
@@ -63,14 +65,28 @@ main_program/CMakeFiles/main_program_generate_messages_py: /home/dit_nuc/tel2022
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG main_program/mission"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg
 
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py: /opt/ros/noetic/lib/genpy/gensrv_py.py
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py: /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python code from SRV main_program/starting"
+	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/gensrv_py.py /home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv -Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -p main_program -o /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv
+
 /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Python msg __init__.py for main_program"
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python msg __init__.py for main_program"
 	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg --initpy
+
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py
+/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python srv __init__.py for main_program"
+	cd /home/dit_nuc/tel2022_nuc_ws/build/main_program && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv --initpy
 
 main_program_generate_messages_py: main_program/CMakeFiles/main_program_generate_messages_py
 main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py
+main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py
 main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py
+main_program_generate_messages_py: /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py
 main_program_generate_messages_py: main_program/CMakeFiles/main_program_generate_messages_py.dir/build.make
 
 .PHONY : main_program_generate_messages_py

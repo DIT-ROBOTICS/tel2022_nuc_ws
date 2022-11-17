@@ -1,13 +1,20 @@
 # Hashes of file build rules.
 20b28f5e919efde7210ce91b01ea4d91 /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/mission.h
+5a97e5113f4af6ef2fb9d524d12852b5 /home/dit_nuc/tel2022_nuc_ws/devel/include/main_program/starting.h
 dcc06417b59ba686a0c31947067bcf0b /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/__init__.py
 4c18f950065cd58459b23db79c2a5aff /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/msg/_mission.py
+cf78a0d6e894499185bcbc91e59514d6 /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/__init__.py
+31c9b22d91fde4a37e8729f95de311a5 /home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages/main_program/srv/_starting.py
 d4d9184cd7837e003b52e611a9a829c8 /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/msg/mission.lisp
+45dfda37c11b5b334f118d5c84d182e1 /home/dit_nuc/tel2022_nuc_ws/devel/share/common-lisp/ros/main_program/srv/starting.lisp
 fe2d3dbaee94915e1c5770fdad7ff8f4 /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/msg/mission.js
+6eea7c54852f147001eaec8c3f248cfa /home/dit_nuc/tel2022_nuc_ws/devel/share/gennodejs/ros/main_program/srv/starting.js
 4bde1270fef0ac7ceaf30e8d94cbb4b4 /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/manifest.l
 3b86dce83c863f6606b2951e35664a85 /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/msg/mission.l
+f4a4fde9239ecc4da3a9511f099ce479 /home/dit_nuc/tel2022_nuc_ws/devel/share/roseus/ros/main_program/srv/starting.l
 f9a8a404d4970d1046adadc9df33213c CMakeFiles/clean_test_results
 07b38569e96adf9fc16672a4f136e191 main_program/CMakeFiles/_main_program_generate_messages_check_deps_mission
+c512220cb828a879268faf7737e1e06e main_program/CMakeFiles/_main_program_generate_messages_check_deps_starting
 80493eb5a50fabf6f949cd181731b2da main_program/CMakeFiles/main_program_generate_messages_cpp
 80493eb5a50fabf6f949cd181731b2da main_program/CMakeFiles/main_program_generate_messages_eus
 80493eb5a50fabf6f949cd181731b2da main_program/CMakeFiles/main_program_generate_messages_lisp

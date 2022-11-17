@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "main_program: 1 messages, 0 services")
+message(STATUS "main_program: 1 messages, 1 services")
 
 set(MSG_I_FLAGS "-Imain_program:/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg")
 
@@ -22,6 +22,11 @@ add_custom_target(_main_program_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "main_program" "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" "geometry_msgs/Point"
 )
 
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
+add_custom_target(_main_program_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "main_program" "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" ""
+)
+
 #
 #  langs = gencpp;geneus;genlisp;gennodejs;genpy
 #
@@ -36,6 +41,12 @@ _generate_msg_cpp(main_program
 )
 
 ### Generating Services
+_generate_srv_cpp(main_program
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/main_program
+)
 
 ### Generating Module File
 _generate_module_cpp(main_program
@@ -50,6 +61,8 @@ add_dependencies(main_program_generate_messages main_program_generate_messages_c
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" NAME_WE)
+add_dependencies(main_program_generate_messages_cpp _main_program_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
 add_dependencies(main_program_generate_messages_cpp _main_program_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -69,6 +82,12 @@ _generate_msg_eus(main_program
 )
 
 ### Generating Services
+_generate_srv_eus(main_program
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/main_program
+)
 
 ### Generating Module File
 _generate_module_eus(main_program
@@ -83,6 +102,8 @@ add_dependencies(main_program_generate_messages main_program_generate_messages_e
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" NAME_WE)
+add_dependencies(main_program_generate_messages_eus _main_program_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
 add_dependencies(main_program_generate_messages_eus _main_program_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -102,6 +123,12 @@ _generate_msg_lisp(main_program
 )
 
 ### Generating Services
+_generate_srv_lisp(main_program
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/main_program
+)
 
 ### Generating Module File
 _generate_module_lisp(main_program
@@ -116,6 +143,8 @@ add_dependencies(main_program_generate_messages main_program_generate_messages_l
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" NAME_WE)
+add_dependencies(main_program_generate_messages_lisp _main_program_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
 add_dependencies(main_program_generate_messages_lisp _main_program_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -135,6 +164,12 @@ _generate_msg_nodejs(main_program
 )
 
 ### Generating Services
+_generate_srv_nodejs(main_program
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/main_program
+)
 
 ### Generating Module File
 _generate_module_nodejs(main_program
@@ -149,6 +184,8 @@ add_dependencies(main_program_generate_messages main_program_generate_messages_n
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" NAME_WE)
+add_dependencies(main_program_generate_messages_nodejs _main_program_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
 add_dependencies(main_program_generate_messages_nodejs _main_program_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -168,6 +205,12 @@ _generate_msg_py(main_program
 )
 
 ### Generating Services
+_generate_srv_py(main_program
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/main_program
+)
 
 ### Generating Module File
 _generate_module_py(main_program
@@ -182,6 +225,8 @@ add_dependencies(main_program_generate_messages main_program_generate_messages_p
 
 # add dependencies to all check dependencies targets
 get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/msg/mission.msg" NAME_WE)
+add_dependencies(main_program_generate_messages_py _main_program_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/dit_nuc/tel2022_nuc_ws/src/main_program/srv/starting.srv" NAME_WE)
 add_dependencies(main_program_generate_messages_py _main_program_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
