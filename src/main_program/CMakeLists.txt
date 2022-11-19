@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
     roslib
     rospy
     std_msgs
+    cv_bridge
 )
 
 # # System dependencies are found with CMake's conventions
@@ -128,10 +129,13 @@ catkin_package(
 
 # # Specify additional locations of header files
 # # Your package locations should be listed before other locations
+set(OpenCV_DIR "/usr/include/opencv2")
+
 include_directories(
 
     # include
     ${catkin_INCLUDE_DIRS}
+    ${OpenCV_DIR}
 )
 
 # # Declare a C++ library

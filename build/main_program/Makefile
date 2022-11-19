@@ -183,21 +183,6 @@ main_program_generate_messages_py/fast:
 .PHONY : main_program_generate_messages_py/fast
 
 # Convenience name for target.
-main_program/CMakeFiles/main_program_gennodejs.dir/rule:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_gennodejs.dir/rule
-.PHONY : main_program/CMakeFiles/main_program_gennodejs.dir/rule
-
-# Convenience name for target.
-main_program_gennodejs: main_program/CMakeFiles/main_program_gennodejs.dir/rule
-
-.PHONY : main_program_gennodejs
-
-# fast build rule for target.
-main_program_gennodejs/fast:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_gennodejs.dir/build.make main_program/CMakeFiles/main_program_gennodejs.dir/build
-.PHONY : main_program_gennodejs/fast
-
-# Convenience name for target.
 main_program/CMakeFiles/main_program_generate_messages_lisp.dir/rule:
 	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_generate_messages_lisp.dir/rule
 .PHONY : main_program/CMakeFiles/main_program_generate_messages_lisp.dir/rule
@@ -226,36 +211,6 @@ main_program_generate_messages_eus: main_program/CMakeFiles/main_program_generat
 main_program_generate_messages_eus/fast:
 	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_generate_messages_eus.dir/build.make main_program/CMakeFiles/main_program_generate_messages_eus.dir/build
 .PHONY : main_program_generate_messages_eus/fast
-
-# Convenience name for target.
-main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
-.PHONY : main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-main_program_generate_messages_nodejs: main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
-
-.PHONY : main_program_generate_messages_nodejs
-
-# fast build rule for target.
-main_program_generate_messages_nodejs/fast:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/build.make main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/build
-.PHONY : main_program_generate_messages_nodejs/fast
-
-# Convenience name for target.
-main_program/CMakeFiles/main_program_gencpp.dir/rule:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_gencpp.dir/rule
-.PHONY : main_program/CMakeFiles/main_program_gencpp.dir/rule
-
-# Convenience name for target.
-main_program_gencpp: main_program/CMakeFiles/main_program_gencpp.dir/rule
-
-.PHONY : main_program_gencpp
-
-# fast build rule for target.
-main_program_gencpp/fast:
-	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_gencpp.dir/build.make main_program/CMakeFiles/main_program_gencpp.dir/build
-.PHONY : main_program_gencpp/fast
 
 # Convenience name for target.
 main_program/CMakeFiles/main_program_generate_messages_cpp.dir/rule:
@@ -318,6 +273,96 @@ main_program_generate_messages/fast:
 .PHONY : main_program_generate_messages/fast
 
 # Convenience name for target.
+main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+.PHONY : main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_nodejs: main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+sensor_msgs_generate_messages_nodejs/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make main_program/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+.PHONY : sensor_msgs_generate_messages_nodejs/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
+.PHONY : main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+main_program_generate_messages_nodejs: main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/rule
+
+.PHONY : main_program_generate_messages_nodejs
+
+# fast build rule for target.
+main_program_generate_messages_nodejs/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/build.make main_program/CMakeFiles/main_program_generate_messages_nodejs.dir/build
+.PHONY : main_program_generate_messages_nodejs/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/main_program_gencpp.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_gencpp.dir/rule
+.PHONY : main_program/CMakeFiles/main_program_gencpp.dir/rule
+
+# Convenience name for target.
+main_program_gencpp: main_program/CMakeFiles/main_program_gencpp.dir/rule
+
+.PHONY : main_program_gencpp
+
+# fast build rule for target.
+main_program_gencpp/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_gencpp.dir/build.make main_program/CMakeFiles/main_program_gencpp.dir/build
+.PHONY : main_program_gencpp/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_lisp: main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make main_program/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/main_program_gennodejs.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/main_program_gennodejs.dir/rule
+.PHONY : main_program/CMakeFiles/main_program_gennodejs.dir/rule
+
+# Convenience name for target.
+main_program_gennodejs: main_program/CMakeFiles/main_program_gennodejs.dir/rule
+
+.PHONY : main_program_gennodejs
+
+# fast build rule for target.
+main_program_gennodejs/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/main_program_gennodejs.dir/build.make main_program/CMakeFiles/main_program_gennodejs.dir/build
+.PHONY : main_program_gennodejs/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+.PHONY : main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_cpp: main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_cpp/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make main_program/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
 main_program/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
 	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 .PHONY : main_program/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
@@ -346,6 +391,21 @@ nav_msgs_generate_messages_lisp: main_program/CMakeFiles/nav_msgs_generate_messa
 nav_msgs_generate_messages_lisp/fast:
 	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make main_program/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
 .PHONY : nav_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+.PHONY : main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_eus: main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_eus
+
+# fast build rule for target.
+sensor_msgs_generate_messages_eus/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make main_program/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+.PHONY : sensor_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
 main_program/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
@@ -406,6 +466,21 @@ std_msgs_generate_messages_lisp: main_program/CMakeFiles/std_msgs_generate_messa
 std_msgs_generate_messages_lisp/fast:
 	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make main_program/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f CMakeFiles/Makefile2 main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+sensor_msgs_generate_messages_py: main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	cd /home/dit_nuc/tel2022_nuc_ws/build && $(MAKE) -f main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make main_program/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
 
 # Convenience name for target.
 main_program/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
@@ -865,21 +940,26 @@ help:
 	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... main_program_generate_messages_py"
-	@echo "... main_program_gennodejs"
 	@echo "... main_program_generate_messages_lisp"
 	@echo "... main_program_generate_messages_eus"
-	@echo "... main_program_generate_messages_nodejs"
-	@echo "... main_program_gencpp"
 	@echo "... main_program_generate_messages_cpp"
 	@echo "... _main_program_generate_messages_check_deps_starting"
 	@echo "... _main_program_generate_messages_check_deps_mission"
 	@echo "... main_program_generate_messages"
+	@echo "... sensor_msgs_generate_messages_nodejs"
+	@echo "... main_program_generate_messages_nodejs"
+	@echo "... main_program_gencpp"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... main_program_gennodejs"
+	@echo "... sensor_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... main_program_geneus"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... actionlib_msgs_generate_messages_cpp"

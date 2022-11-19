@@ -50,7 +50,7 @@ def call_detection_service():
 
 def get_photo_callback(req):
     cv2.imwrite(
-        "/home/dit_nuc/tel2022_nuc_ws/src/main_program/include/detectPhoto.jpeg", frame)
+        "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/picture/detectPhoto.jpeg", frame)
     print(call_detection_service())
     return TriggerResponse(True, "Successfully Get Detect Photo and Finish Calling Block Detection Service !")
 

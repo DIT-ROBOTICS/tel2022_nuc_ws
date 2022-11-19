@@ -21,7 +21,7 @@
 },
 {
   "directory": "/home/dit_nuc/tel2022_nuc_ws/build/main_program",
-  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"main_program\\\" -I/home/dit_nuc/tel2022_nuc_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp    -o CMakeFiles/main_tel2022.dir/src/main_tel2022.cpp.o -c /home/dit_nuc/tel2022_nuc_ws/src/main_program/src/main_tel2022.cpp",
+  "command": "/usr/bin/c++  -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\\\"main_program\\\" -I/home/dit_nuc/tel2022_nuc_ws/devel/include -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/usr/include/opencv4 -I/usr/include/opencv2    -o CMakeFiles/main_tel2022.dir/src/main_tel2022.cpp.o -c /home/dit_nuc/tel2022_nuc_ws/src/main_program/src/main_tel2022.cpp",
   "file": "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/main_tel2022.cpp"
 }
 ]
