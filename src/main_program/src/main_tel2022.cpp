@@ -348,7 +348,7 @@ public:
             {
                 cout << "No Relative Script Can Be Read !" << endl;
             }
-            cout << "Script: " << whichScript << "get" << endl;
+            cout << "Script: " << whichScript << " get" << endl;
             now_Status = SETUP;
             readScript = false;
         }
