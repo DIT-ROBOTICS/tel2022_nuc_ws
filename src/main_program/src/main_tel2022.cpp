@@ -178,28 +178,27 @@ void doMission(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceClient cli,
     else if (missionType == 3 && !arm_mission_1)
     {
         // Publish target to arm
-        // get_block.T = t_block;
-        // get_block.E = e_block;
-        // get_block.L = l_block;
-        // get_block.T = t_block;
-        // get_block.E = e_block;
-        // get_block.L = l_block;
-        geometry_msgs::Point t_temp;
-        t_temp.x = 100;
-        t_temp.y = 200;
-        t_temp.z = -13;
-        geometry_msgs::Point e_temp;
-        e_temp.x = 100;
-        e_temp.y = 350;
-        e_temp.z = -13;
-        geometry_msgs::Point l_temp;
-        l_temp.x = -100;
-        l_temp.y = 400;
-        l_temp.z = -13;
-        get_block.T = t_temp;
-        get_block.E = e_temp;
-        get_block.L = l_temp;
+        get_block.T = t_block;
+        get_block.E = e_block;
+        get_block.L = l_block;
+        // geometry_msgs::Point t_temp;
+        // t_temp.x = 100;
+        // t_temp.y = 200;
+        // t_temp.z = -13;
+        // geometry_msgs::Point e_temp;
+        // e_temp.x = 100;
+        // e_temp.y = 350;
+        // e_temp.z = -13;
+        // geometry_msgs::Point l_temp;
+        // l_temp.x = -100;
+        // l_temp.y = 400;
+        // l_temp.z = -13;
+        // get_block.T = t_temp;
+        // get_block.E = e_temp;
+        // get_block.L = l_temp;
+
         get_block.type = 1;
+
         pub2.publish(get_block);
         doing = true;
         arm_mission_1 = true;
@@ -348,7 +347,7 @@ public:
             {
                 cout << "No Relative Script Can Be Read !" << endl;
             }
-            cout << "Script: " << whichScript << " get" << endl;
+            cout << "Script: " << whichScript << " Get !" << endl;
             now_Status = SETUP;
             readScript = false;
         }
