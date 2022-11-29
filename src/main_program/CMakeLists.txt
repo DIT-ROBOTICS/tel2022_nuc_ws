@@ -187,6 +187,7 @@ add_dependencies(main_tel2022 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPOR
 catkin_install_python(PROGRAMS
     src/rgb_saver.py
     src/block_detection.py
+    src/ds5_inputs.py
     DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

@@ -131,167 +131,6 @@ main_program::mission get_block;
 
 vector<state> state_list;
 
-// Function Define
-
-bool checkPosition(double x, double y)
-{
-    if (pow(pow((x - position_x), 2) + pow((y - position_y), 2), 0.5) <= 0.02)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-void doMission(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceClient cli, int index)
-{
-    int missionType = state_list[index].getResult();
-    if (missionType == 1)
-    {
-        // Publish target to base
-        output_target.header.frame_id = "map";
-        output_target.header.stamp = ros::Time::now();
-        output_target.pose = state_list[index].getTarget();
-        pub1.publish(output_target);
-        moving = true;
-    }
-    else if (missionType == 2 && !mission_camera)
-    {
-        // Publish target to arm
-        double timingStart = ros::Time::now().toSec();
-        while (ros::Time::now().toSec() - timingStart < 3)
-        {
-        }
-        std_srvs::Trigger srv;
-        if (cli.call(srv))
-        {
-            cout << srv.response.message << endl;
-        }
-        else
-        {
-            ROS_ERROR("Failed to call Block Detection !");
-        }
-        mission_camera = true;
-    }
-    else if (missionType == 3 && !arm_mission_1)
-    {
-        // Publish target to arm
-        get_block.T = t_block;
-        get_block.E = e_block;
-        get_block.L = l_block;
-        // geometry_msgs::Point t_temp;
-        // t_temp.x = 100;
-        // t_temp.y = 200;
-        // t_temp.z = -13;
-        // geometry_msgs::Point e_temp;
-        // e_temp.x = 100;
-        // e_temp.y = 350;
-        // e_temp.z = -13;
-        // geometry_msgs::Point l_temp;
-        // l_temp.x = -100;
-        // l_temp.y = 400;
-        // l_temp.z = -13;
-        // get_block.T = t_temp;
-        // get_block.E = e_temp;
-        // get_block.L = l_temp;
-
-        get_block.type = 1;
-
-        pub2.publish(get_block);
-        doing = true;
-        arm_mission_1 = true;
-    }
-    else if (missionType == 4 && !arm_mission_2)
-    {
-        // Publish target to arm
-        get_block.type = 2;
-        pub2.publish(get_block);
-        doing = true;
-        arm_mission_2 = true;
-    }
-    else if (missionType == 5 && !arm_mission_3)
-    {
-        // Publish target to arm
-        get_block.type = 3;
-        pub2.publish(get_block);
-        doing = true;
-        arm_mission_3 = true;
-    }
-}
-
-void checkStateMachine(ros::Publisher pub1, ros::Publisher pub2, ros::ServiceClient cli)
-{
-    for (int i = 0; i < state_list.size(); i++)
-    {
-        if (checkPosition(state_list[i].getPosition('x'), state_list[i].getPosition('y')))
-        {
-            // cout << position_x << " , " << position_y << " - Index : " << i << endl;
-            if (state_list[i].getCondition() == 11)
-            {
-                if (moving && doing)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 10)
-            {
-                if (moving && !doing)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 1)
-            {
-                if (!moving && doing)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 0)
-            {
-                if (!moving && !doing)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 20)
-            {
-                if (!moving && !doing && mission_camera)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 30)
-            {
-                if (!moving && !doing && arm_mission_1)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 40)
-            {
-                if (!moving && !doing && arm_mission_2)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-            else if (state_list[i].getCondition() == 50)
-            {
-                if (!moving && !doing && arm_mission_3)
-                {
-                    doMission(pub1, pub2, cli, i);
-                }
-            }
-        }
-        else
-        {
-            // cout << "Not Find Correspond State" << endl;
-        }
-    }
-}
-
 // Node Handling Class Define
 
 class mainProgram
@@ -386,6 +225,7 @@ public:
 
     ros::Publisher _baseTarget = nh.advertise<geometry_msgs::PoseStamped>("base_goal", 100); // Publish goal to navigation
     ros::Publisher _armTarget = nh.advertise<main_program::mission>("mission_target", 100);  // Publish goal to arm
+    ros::Publisher _light = nh.advertise<std_msgs::Bool>("light", 100);                      // Publish light to Mission
 
     // ROS Topics Subscribers
     ros::Subscriber _globalFilter = nh.subscribe<geometry_msgs::PoseStamped>("map_pose", 100, &mainProgram::position_callback, this);  // Get position from localization
@@ -401,6 +241,177 @@ public:
     // ROS Service Client
     ros::ServiceClient _blockDetect = nh.serviceClient<std_srvs::Trigger>("get_photo");
 };
+
+// Function Define
+
+bool checkPosition(double x, double y)
+{
+    if (pow(pow((x - position_x), 2) + pow((y - position_y), 2), 0.5) <= 0.02)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void doMission(mainProgram mainClass, int index)
+{
+    ros::Publisher pub1 = mainClass._baseTarget;
+    ros::Publisher pub2 = mainClass._armTarget;
+    ros::ServiceClient cli = mainClass._blockDetect;
+    ros::Publisher pub3 = mainClass._light;
+
+    int missionType = state_list[index].getResult();
+    if (missionType == 1)
+    {
+        // Publish target to base
+        output_target.header.frame_id = "map";
+        output_target.header.stamp = ros::Time::now();
+        output_target.pose = state_list[index].getTarget();
+        pub1.publish(output_target);
+        moving = true;
+    }
+    else if (missionType == 2 && !mission_camera)
+    {
+        // Publish target to arm
+        std_msgs::Bool lightStatus;
+        lightStatus.data = true;
+        pub3.publish(lightStatus);
+        double timingStart = ros::Time::now().toSec();
+        while (ros::Time::now().toSec() - timingStart < 3)
+        {
+        }
+        std_srvs::Trigger srv;
+        if (cli.call(srv))
+        {
+            cout << srv.response.message << endl;
+        }
+        else
+        {
+            ROS_ERROR("Failed to call Block Detection !");
+        }
+        mission_camera = true;
+        lightStatus.data = false;
+        pub3.publish(lightStatus);
+    }
+    else if (missionType == 3 && !arm_mission_1)
+    {
+        // Publish target to arm
+        get_block.T = t_block;
+        get_block.E = e_block;
+        get_block.L = l_block;
+        // geometry_msgs::Point t_temp;
+        // t_temp.x = 100;
+        // t_temp.y = 200;
+        // t_temp.z = -13;
+        // geometry_msgs::Point e_temp;
+        // e_temp.x = 100;
+        // e_temp.y = 350;
+        // e_temp.z = -13;
+        // geometry_msgs::Point l_temp;
+        // l_temp.x = -100;
+        // l_temp.y = 400;
+        // l_temp.z = -13;
+        // get_block.T = t_temp;
+        // get_block.E = e_temp;
+        // get_block.L = l_temp;
+
+        get_block.type = 1;
+
+        pub2.publish(get_block);
+        doing = true;
+        arm_mission_1 = true;
+    }
+    else if (missionType == 4 && !arm_mission_2)
+    {
+        // Publish target to arm
+        get_block.type = 2;
+        pub2.publish(get_block);
+        doing = true;
+        arm_mission_2 = true;
+    }
+    else if (missionType == 5 && !arm_mission_3)
+    {
+        // Publish target to arm
+        get_block.type = 3;
+        pub2.publish(get_block);
+        doing = true;
+        arm_mission_3 = true;
+    }
+}
+
+void checkStateMachine(mainProgram mainClass)
+{
+    for (int i = 0; i < state_list.size(); i++)
+    {
+        if (checkPosition(state_list[i].getPosition('x'), state_list[i].getPosition('y')))
+        {
+            // cout << position_x << " , " << position_y << " - Index : " << i << endl;
+            if (state_list[i].getCondition() == 11)
+            {
+                if (moving && doing)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 10)
+            {
+                if (moving && !doing)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 1)
+            {
+                if (!moving && doing)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 0)
+            {
+                if (!moving && !doing)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 20)
+            {
+                if (!moving && !doing && mission_camera)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 30)
+            {
+                if (!moving && !doing && arm_mission_1)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 40)
+            {
+                if (!moving && !doing && arm_mission_2)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+            else if (state_list[i].getCondition() == 50)
+            {
+                if (!moving && !doing && arm_mission_3)
+                {
+                    doMission(mainClass, i);
+                }
+            }
+        }
+        else
+        {
+            // cout << "Not Find Correspond State" << endl;
+        }
+    }
+}
 
 // Main Program
 
@@ -525,7 +536,7 @@ int main(int argc, char **argv)
             }
             break;
         case RUN:
-            checkStateMachine(mainClass._baseTarget, mainClass._armTarget, mainClass._blockDetect);
+            checkStateMachine(mainClass);
             break;
         case FINISH:
             break;

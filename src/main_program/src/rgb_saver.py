@@ -62,6 +62,13 @@ def take_photo_server():
     # Connect to device and start pipeline
     with dai.Device(pipeline) as device:
 
+        # Adjustment Focus
+        controlQueue = device.getInputQueue('control')
+        ctrl = dai.CameraControl()
+        ctrl.setManualFocus(128)
+        ctrl.setManualWhiteBalance(4200)
+        controlQueue.send(ctrl)
+
         # Output queue will be used to get the rgb frames from the output defined above
         qRgb = device.getOutputQueue(name="rgb", maxSize=30, blocking=False)
         qStill = device.getOutputQueue(name="still", maxSize=30, blocking=True)
@@ -71,8 +78,8 @@ def take_photo_server():
             global frame
             frame = inRgb.getCvFrame()
             # 4k / 4
-            frame = cv2.pyrDown(frame)
-            frame = cv2.pyrDown(frame)
+            # frame = cv2.pyrDown(frame)
+            # frame = cv2.pyrDown(frame)
 
         # Make sure the destination path is present before starting to store the examples
         dirName = "/home/dit_nuc/tel2022_nuc_ws/src/main_program/include"

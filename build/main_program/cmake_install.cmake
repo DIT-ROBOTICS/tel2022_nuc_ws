@@ -100,3 +100,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/main_program" TYPE PROGRAM FILES "/home/dit_nuc/tel2022_nuc_ws/build/main_program/catkin_generated/installspace/block_detection.py")
 endif()
 
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/main_program" TYPE PROGRAM FILES "/home/dit_nuc/tel2022_nuc_ws/build/main_program/catkin_generated/installspace/ds5_inputs.py")
+endif()
+

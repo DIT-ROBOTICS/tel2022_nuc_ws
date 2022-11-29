@@ -30,13 +30,13 @@ def x_transformation(img_x, img_y):
 
 def y_transformation(img_y):
     if img_y < 140:
-        return (140-img_y)*85/30+330
+        return (140-img_y)*85/30+365
     elif img_y < 190:
-        return (190-img_y)*85/50+245
+        return (190-img_y)*85/50+270
     elif img_y < 260:
-        return (260-img_y)*85/70+160
+        return (260-img_y)*85/70+195
     else:
-        return (350-img_y)*85/90+75
+        return (350-img_y)*85/90+110
 
 
 def detection_callback(req):
@@ -44,11 +44,14 @@ def detection_callback(req):
     global finishDetectService
 
     t_prob = 0.0
+    t2_prob = 0.0
     e_prob = 0.0
     l_prob = 0.0
+    l2_prob = 0.0
 
-    Conf_threshold = 0.8
+    Conf_threshold = 0.5
     NMS_threshold = 0.4
+
     COLORS = [(0, 255, 0), (0, 0, 255), (255, 0, 0),
               (255, 255, 0), (255, 0, 255)]
 
@@ -67,6 +70,12 @@ def detection_callback(req):
     # print(net.getLayerNames())
 
     pred_img = img
+    t_block = Point(0., 0., 0.)
+    e_block = Point(0., 0., 0.)
+    l_block = Point(0., 0., 0.)
+    t_block_list = []
+    e_block_list = []
+    l_block_list = []
 
     classes, scores, boxes = model.detect(img, Conf_threshold, NMS_threshold)
     for (classid, score, box) in zip(classes, scores, boxes):
@@ -78,31 +87,48 @@ def detection_callback(req):
         pred_img = cv2.putText(
             pred_img, label, (box[0], box[1]-10), cv2.FONT_HERSHEY_COMPLEX, 0.3, color, 1)
 
-        if class_name[classid] == 'T' and t_prob < score:
-            t_block = Point()
-            t_block.x = x_transformation(box[0]+0.5*box[2], box[1]+0.2*box[3])
-            t_block.y = y_transformation(box[1]+0.2*box[3])
-            t_block.z = -15.5
-            _tblockPublisher.publish(t_block)
-            t_prob = score
+        if class_name[classid] == 'T':
+            t_block_list.append((score, x_transformation(
+                box[0]+0.5*box[2], box[1]+0.2*box[3]), y_transformation(box[1]+0.2*box[3]), -15.5))
 
-        elif class_name[classid] == 'E' and e_prob < score:
-            e_block = Point()
-            e_block.x = x_transformation(box[0]+0.5*box[2], box[1]+0.2*box[3])
-            e_block.y = y_transformation(box[1]+0.2*box[3])
-            e_block.z = -15.5
-            _eblockPublisher.publish(e_block)
-            e_prob = score
+        elif class_name[classid] == 'E':
+            e_block_list.append((score, x_transformation(
+                box[0]+0.5*box[2], box[1]+0.2*box[3]), y_transformation(box[1]+0.2*box[3]), -15.5))
 
-        elif class_name[classid] == 'L' and l_prob < score:
-            l_block = Point()
-            l_block.x = x_transformation(box[0]+0.5*box[2], box[1]+0.2*box[3])
-            l_block.y = y_transformation(box[1]+0.2*box[3])
-            l_block.z = -15.5
-            _lblockPublisher.publish(l_block)
-            l_prob = score
+        elif class_name[classid] == 'L':
+            l_block_list.append((score, x_transformation(
+                box[0]+0.5*box[2], box[1]+0.2*box[3]), y_transformation(box[1]+0.2*box[3]), -15.5))
+
+    t_block_list.sort(key=lambda tup: tup[0], reverse=True)
+    e_block_list.sort(key=lambda tup: tup[0], reverse=True)
+    l_block_list.sort(key=lambda tup: tup[0], reverse=True)
+
+    if not len(t_block_list) == 0:
+        t_block.x = t_block_list[0][1]
+        t_block.y = t_block_list[0][2]
+        t_block.z = t_block_list[0][3]
+    elif len(l_block_list) >= 2:
+        t_block.x = l_block_list[1][1]
+        t_block.y = l_block_list[1][2]
+        t_block.z = l_block_list[1][3]
+
+    if not len(e_block_list) == 0:
+        e_block.x = e_block_list[0][1]
+        e_block.y = e_block_list[0][2]
+        e_block.z = e_block_list[0][3]
+    if not len(l_block_list) == 0:
+        l_block.x = l_block_list[0][1]
+        l_block.y = l_block_list[0][2]
+        l_block.z = l_block_list[0][3]
+    elif len(t_block_list) >= 2:
+        l_block.x = t_block_list[1][1]
+        l_block.y = t_block_list[1][2]
+        l_block.z = t_block_list[1][3]
 
     cv2.imwrite(packagePath+'/src/picture/predictions.jpeg', pred_img)
+    _tblockPublisher.publish(t_block)
+    _eblockPublisher.publish(e_block)
+    _lblockPublisher.publish(l_block)
 
     finishDetectService = True
 

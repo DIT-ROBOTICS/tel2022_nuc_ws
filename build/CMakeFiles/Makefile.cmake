@@ -23,6 +23,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/dit_nuc/tel2022_nuc_ws/src/main_program/CMakeLists.txt"
   "/home/dit_nuc/tel2022_nuc_ws/src/main_program/package.xml"
   "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/block_detection.py"
+  "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/ds5_inputs.py"
   "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/rgb_saver.py"
   "/opt/ros/noetic/share/actionlib_msgs/cmake/actionlib_msgs-extras.cmake"
   "/opt/ros/noetic/share/actionlib_msgs/cmake/actionlib_msgs-msg-extras.cmake"
