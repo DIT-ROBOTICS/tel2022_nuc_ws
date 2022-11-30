@@ -17,6 +17,8 @@ finishDetectService = False
 
 
 def x_transformation(img_x, img_y):
+    if img_y > 350:
+        img_y = 350
     middle_point = (350-img_y)*20/240+440
     # print(middle_point)
     image_range = (img_y-110)*330/240+420
@@ -30,13 +32,16 @@ def x_transformation(img_x, img_y):
 
 def y_transformation(img_y):
     if img_y < 140:
-        return (140-img_y)*85/30+365
+        return (140-img_y)*85/30+395
     elif img_y < 190:
-        return (190-img_y)*85/50+270
+        return (190-img_y)*85/50+310
     elif img_y < 260:
-        return (260-img_y)*85/70+195
+        return (260-img_y)*85/70+225
+    elif img_y < 350:
+        return (350-img_y)*85/90+130
     else:
-        return (350-img_y)*85/90+110
+        img_y = 350
+        return (350-img_y)*85/90+130
 
 
 def detection_callback(req):
