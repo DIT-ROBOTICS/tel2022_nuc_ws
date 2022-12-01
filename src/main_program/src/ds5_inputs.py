@@ -141,7 +141,7 @@ def eventButton(state, button):
 
 
 def eventAxis(state, axis):
-    if state > 0.02 or state < -0.02:
+    if state > 0.05 or state < -0.05:
         joy_msg.axes[axis] = state
     else:
         joy_msg.axes[axis] = 0
