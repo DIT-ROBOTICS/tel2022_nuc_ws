@@ -4,7 +4,8 @@
     "files.associations": {
         "ostream": "cpp",
         "functional": "cpp",
-        "cmath": "cpp"
+        "cmath": "cpp",
+        "iostream": "cpp"
     },
     "python.autoComplete.extraPaths": [
         "/home/dit_nuc/tel2022_nuc_ws/devel/lib/python3/dist-packages",

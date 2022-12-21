@@ -34,6 +34,7 @@ xoutStill.setStreamName("still")
 videoEnc.bitstream.link(xoutStill.input)
 
 frame = None
+# count = 35
 
 # Define ROS Functions
 
@@ -49,6 +50,10 @@ def call_detection_service():
 
 
 def get_photo_callback(req):
+    # global count
+    # count += 1
+    # cv2.imwrite(
+    #     "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/picture/"+str(count)+".jpeg", frame)
     cv2.imwrite(
         "/home/dit_nuc/tel2022_nuc_ws/src/main_program/src/picture/detectPhoto.jpeg", frame)
     print(call_detection_service())
