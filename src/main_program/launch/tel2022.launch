@@ -4,4 +4,6 @@
     <node name="photo_server_node" pkg="main_program" type="rgb_saver.py" output="screen" />
     <node name="block_detection_node" pkg="main_program" type="block_detection.py" output="screen" />
 
+    <include file="$(find rviz_display)/launch/project_rviz.launch" />
+
 </launch>

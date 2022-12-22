@@ -1,0 +1,8 @@
+prefix=/home/dit_nuc/tel2022_nuc_ws/install
+
+Name: rviz_textured_quads
+Description: Description of rviz_textured_quads
+Version: 0.1.0
+Cflags: -I${prefix}/include -I/usr/include
+Libs: -L${prefix}/lib -lrviz_textured_quads_custom /usr/lib/x86_64-linux-gnu/libGL.so /usr/lib/x86_64-linux-gnu/libGLU.so
+Requires: roscpp rospy roslib std_msgs sensor_msgs shape_msgs rviz pluginlib class_loader cv_bridge geometry_msgs sensor_msgs eigen_conversions rviz

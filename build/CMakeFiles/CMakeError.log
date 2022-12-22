@@ -1,21 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_a1ae6/fast && /usr/bin/make -f CMakeFiles/cmTC_a1ae6.dir/build.make CMakeFiles/cmTC_a1ae6.dir/build
+Run Build Command(s):/usr/bin/make cmTC_91186/fast && /usr/bin/make -f CMakeFiles/cmTC_91186.dir/build.make CMakeFiles/cmTC_91186.dir/build
 make[1]: Entering directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_a1ae6.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_a1ae6.dir/src.c.o   -c /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_a1ae6
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a1ae6.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_a1ae6.dir/src.c.o  -o cmTC_a1ae6 
-/usr/bin/ld: CMakeFiles/cmTC_a1ae6.dir/src.c.o: in function `main':
+Building C object CMakeFiles/cmTC_91186.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_91186.dir/src.c.o   -c /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_91186
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91186.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_91186.dir/src.c.o  -o cmTC_91186 
+/usr/bin/ld: CMakeFiles/cmTC_91186.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_a1ae6.dir/build.make:87: cmTC_a1ae6] Error 1
+make[1]: *** [CMakeFiles/cmTC_91186.dir/build.make:87: cmTC_91186] Error 1
 make[1]: Leaving directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_a1ae6/fast] Error 2
+make: *** [Makefile:121: cmTC_91186/fast] Error 2
 
 
 Source file was:
@@ -41,18 +41,108 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_981c5/fast && /usr/bin/make -f CMakeFiles/cmTC_981c5.dir/build.make CMakeFiles/cmTC_981c5.dir/build
+Run Build Command(s):/usr/bin/make cmTC_09d84/fast && /usr/bin/make -f CMakeFiles/cmTC_09d84.dir/build.make CMakeFiles/cmTC_09d84.dir/build
 make[1]: Entering directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_981c5.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_981c5.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_981c5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_981c5.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_981c5.dir/CheckFunctionExists.c.o  -o cmTC_981c5  -lpthreads 
+Building C object CMakeFiles/cmTC_09d84.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_09d84.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_09d84
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09d84.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_09d84.dir/CheckFunctionExists.c.o  -o cmTC_09d84  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_981c5.dir/build.make:87: cmTC_981c5] Error 1
+make[1]: *** [CMakeFiles/cmTC_09d84.dir/build.make:87: cmTC_09d84] Error 1
 make[1]: Leaving directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_981c5/fast] Error 2
+make: *** [Makefile:121: cmTC_09d84/fast] Error 2
 
 
 
+Determining if the Q_WS_WIN exist failed with the following output:
+Change Dir: /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c2290/fast && /usr/bin/make -f CMakeFiles/cmTC_c2290.dir/build.make CMakeFiles/cmTC_c2290.dir/build
+make[1]: Entering directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c2290.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_c2290.dir/CheckSymbolExists.cxx.o -c /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_WIN’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_WIN))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_c2290.dir/build.make:66: CMakeFiles/cmTC_c2290.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_c2290/fast] Error 2
+
+
+File /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_WIN
+  return ((int*)(&Q_WS_WIN))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_QWS exist failed with the following output:
+Change Dir: /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e1854/fast && /usr/bin/make -f CMakeFiles/cmTC_e1854.dir/build.make CMakeFiles/cmTC_e1854.dir/build
+make[1]: Entering directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_e1854.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_e1854.dir/CheckSymbolExists.cxx.o -c /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_QWS’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_QWS))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_e1854.dir/build.make:66: CMakeFiles/cmTC_e1854.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_e1854/fast] Error 2
+
+
+File /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_QWS
+  return ((int*)(&Q_WS_QWS))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the Q_WS_MAC exist failed with the following output:
+Change Dir: /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_39b5a/fast && /usr/bin/make -f CMakeFiles/cmTC_39b5a.dir/build.make CMakeFiles/cmTC_39b5a.dir/build
+make[1]: Entering directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_39b5a.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++   -I/usr/include/qt4   -o CMakeFiles/cmTC_39b5a.dir/CheckSymbolExists.cxx.o -c /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main(int, char**)’:
+/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:19: error: ‘Q_WS_MAC’ was not declared in this scope
+    8 |   return ((int*)(&Q_WS_MAC))[argc];
+      |                   ^~~~~~~~
+make[1]: *** [CMakeFiles/cmTC_39b5a.dir/build.make:66: CMakeFiles/cmTC_39b5a.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory '/home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp'
+make: *** [Makefile:121: cmTC_39b5a/fast] Error 2
+
+
+File /home/dit_nuc/tel2022_nuc_ws/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <QtCore/qglobal.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef Q_WS_MAC
+  return ((int*)(&Q_WS_MAC))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

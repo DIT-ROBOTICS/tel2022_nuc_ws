@@ -1,0 +1,8 @@
+prefix=/home/dit_nuc/tel2022_nuc_ws/devel
+
+Name: rviz_display
+Description: Description of rviz_display
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

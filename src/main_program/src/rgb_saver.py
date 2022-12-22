@@ -99,7 +99,7 @@ def take_photo_server():
                 # 4k / 4
                 frame = cv2.pyrDown(frame)
                 frame = cv2.pyrDown(frame)
-                # cv2.imshow("rgb", frame)
+                cv2.imshow("rgb", frame)
 
             # Keep the node alive
             rospy.sleep(1)

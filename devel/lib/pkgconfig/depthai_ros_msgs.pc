@@ -1,8 +1,0 @@
-prefix=/home/dit_nuc/tel2022_nuc_ws/devel
-
-Name: depthai_ros_msgs
-Description: Description of depthai_ros_msgs
-Version: 2.5.3
-Cflags: -I/home/dit_nuc/tel2022_nuc_ws/devel/include
-Libs: -L${prefix}/lib 
-Requires: geometry_msgs message_runtime sensor_msgs std_msgs vision_msgs

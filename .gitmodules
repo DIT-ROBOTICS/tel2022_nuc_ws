@@ -1,0 +1,6 @@
+[submodule "src/rviz_camera_stream"]
+	path = src/rviz_camera_stream
+	url = https://github.com/lucasw/rviz_camera_stream.git
+[submodule "src/rviz_textured_quads"]
+	path = src/rviz_textured_quads
+	url = https://github.com/lucasw/rviz_textured_quads.git
