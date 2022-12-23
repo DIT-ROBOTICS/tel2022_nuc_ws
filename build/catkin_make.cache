@@ -1,2 +1,0 @@
-main_program:rviz_camera_stream:rviz_display:rviz_textured_quads
--DCATKIN_DEVEL_PREFIX=/home/dit_nuc/tel2022_nuc_ws/devel -DCMAKE_INSTALL_PREFIX=/home/dit_nuc/tel2022_nuc_ws/install -G Unix Makefiles

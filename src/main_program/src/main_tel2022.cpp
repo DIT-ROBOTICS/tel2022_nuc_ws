@@ -364,7 +364,9 @@ void doMission(mainProgram mainClass, int index)
     {
         // Publish target to arm
         get_block.type = 2;
-        get_block.T.x = 1;
+        get_block.T.x = 0;
+        get_block.E.x = 0;
+        get_block.L.x = 1;
         pub2.publish(get_block);
         doing = true;
         arm_mission_p = true;
@@ -373,7 +375,9 @@ void doMission(mainProgram mainClass, int index)
     {
         // Publish target to arm
         get_block.type = 2;
+        get_block.T.x = 0;
         get_block.E.x = 1;
+        get_block.L.x = 0;
         pub2.publish(get_block);
         doing = true;
         arm_mission_m = true;
@@ -382,7 +386,9 @@ void doMission(mainProgram mainClass, int index)
     {
         // Publish target to arm
         get_block.type = 2;
-        get_block.L.x = 1;
+        get_block.T.x = 1;
+        get_block.E.x = 0;
+        get_block.L.x = 0;
         pub2.publish(get_block);
         doing = true;
         arm_mission_e = true;
@@ -390,10 +396,31 @@ void doMission(mainProgram mainClass, int index)
     else if (missionType == 7 && !arm_mission_stack)
     {
         // Publish target to arm
+        if (whichScript == 4)
+        {
+            get_block.T.x = 1;
+            get_block.E.x = 1;
+            get_block.L.x = 0;
+        }
+        else if (whichScript == 6)
+        {
+            get_block.T.x = 1;
+            get_block.E.x = 0;
+            get_block.L.x = 1;
+        }
+        else if (whichScript == 7)
+        {
+            get_block.T.x = 0;
+            get_block.E.x = 1;
+            get_block.L.x = 1;
+        }
+        else if (whichScript == 8)
+        {
+            get_block.T.x = 1;
+            get_block.E.x = 1;
+            get_block.L.x = 1;
+        }
         get_block.type = 2;
-        get_block.T.x = 1;
-        get_block.E.x = 1;
-        get_block.L.x = 1;
         pub2.publish(get_block);
         doing = true;
         arm_mission_stack = true;

@@ -39,17 +39,19 @@ def y_transformation(img_y):
     elif img_y < 260:
         return (260-img_y)*85/70+240    # 245
     elif img_y < 350:
-        return (350-img_y)*85/90+145    # 150
+        return (350-img_y)*85/90+150    # 150
+    elif img_y < 450:
+        return (450-img_y)*85/90+70
     else:
-        img_y = 350
-        return (350-img_y)*85/90+145
+        img_y = 450
+        return (450-img_y)*85/90+70
 
 
 def detection_callback(req):
 
     global finishDetectService
 
-    Conf_threshold = 0.7
+    Conf_threshold = 0.5
     NMS_threshold = 0.4
 
     COLORS = [(0, 255, 0), (0, 0, 255), (255, 0, 0),
